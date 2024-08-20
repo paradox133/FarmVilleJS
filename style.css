@@ -19,8 +19,9 @@ h1 {
 }
 
 .farm {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
     margin-bottom: 20px;
 }
 
@@ -33,15 +34,41 @@ h1 {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, border 0.3s;
 }
 
-.plot[data-crop="wheat"] {
-    background-color: #ffeb3b;
+.plot[data-growth="1"][data-crop="wheat"] {
+    background-color: #fff9c4; /* Light yellow for early wheat growth */
 }
 
-.plot[data-crop="corn"] {
-    background-color: #ff9800;
+.plot[data-growth="2"][data-crop="wheat"] {
+    background-color: #fff176; /* Medium yellow for mid wheat growth */
+}
+
+.plot[data-growth="3"][data-crop="wheat"] {
+    background-color: #ffeb3b; /* Bright yellow for fully grown wheat */
+    border: 2px solid yellow; /* Yellow border for harvest-ready crops */
+    animation: flash 1s infinite;
+}
+
+.plot[data-growth="1"][data-crop="corn"] {
+    background-color: #a5d6a7; /* Light green for early corn growth */
+}
+
+.plot[data-growth="2"][data-crop="corn"] {
+    background-color: #66bb6a; /* Medium green for mid corn growth */
+}
+
+.plot[data-growth="3"][data-crop="corn"] {
+    background-color: #388e3c; /* Dark green for fully grown corn */
+    border: 2px solid yellow; /* Yellow border for harvest-ready crops */
+    animation: flash 1s infinite;
+}
+
+@keyframes flash {
+    0% { border-color: yellow; }
+    50% { border-color: red; }
+    100% { border-color: yellow; }
 }
 
 button {
@@ -53,7 +80,7 @@ button {
     cursor: pointer;
 }
 
-#harvest-count {
+#harvest-count, #coin-count {
     text-align: center;
     margin-top: 10px;
 }

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarmVilleJS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>FarmVilleJS</h1>
+        <div class="farm">
+            <div class="plot" onclick="plantCrop(this)" data-crop=""></div>
+            <div class="plot" onclick="plantCrop(this)" data-crop=""></div>
+            <div class="plot" onclick="plantCrop(this)" data-crop=""></div>
+            <div class="plot" onclick="plantCrop(this)" data-crop=""></div>
+        </div>
+        <button onclick="harvestCrops()">Harvest Crops</button>
+        <p id="harvest-count">Harvested Crops: 0</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
